@@ -1,0 +1,25 @@
+{
+  "name": "@choerodon/pro-master",
+  "version": "0.1.12",
+  "description": "",
+  "main": "./lib/masterPro/index.js",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "choerodon-front-boot start --config ./src/config.js",
+    "compile": "gulp compile"
+  },
+  "author": "",
+  "license": "ISC",
+  "peerDependencies": {
+    "@choerodon/boot": "0.17.x"
+  },
+  "devDependencies": {
+    "babel-preset-env": "^1.7.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.1",
+    "through2": "^2.0.3"
+  }
+}
