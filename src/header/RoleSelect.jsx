@@ -41,10 +41,14 @@ export default class RoleSelect extends Component {
       return null;
     }
     const currentUserRole = activeUserRoles.find(v => v.id === currentUserRoleId);
+    let emptyMenuSign = false;
+    if (activeUserRoles.length === 1 && activeUserRoles[0] === currentUserRole) {
+      emptyMenuSign = true;
+    }
     const menu = (
       <Menu onClick={this.handleChangeRole}>
         {
-          activeUserRoles.map(role => (
+          (emptyMenuSign ? [] : activeUserRoles).map(role => (
             <Menu.Item key={role.id} style={{ background: role.id === currentUserRoleId ? 'rgba(0, 0, 0, 0.08)' : '' }}>
               <a href={`/sys/role/change?roleId=${role.id}`}>{role.name}</a>
             </Menu.Item>
@@ -54,7 +58,9 @@ export default class RoleSelect extends Component {
     );
     return (
       <Dropdown overlay={menu} trigger={['click']}>
-        <span style={{ userSelect: 'none', userSelect: 'none', lineHeight: '32px', marginRight: 12, fontSize: '12px', cursor: 'pointer' }}>{currentUserRole.name}</span>
+        <span style={{ userSelect: 'none', userSelect: 'none', lineHeight: '32px', marginRight: 12, fontSize: '12px', cursor: 'pointer' }}>
+          {currentUserRole ? currentUserRole.name : ''}
+        </span>
       </Dropdown>
     );
   }

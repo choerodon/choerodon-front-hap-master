@@ -1,6 +1,6 @@
 {
   "name": "@choerodon/pro-master",
-  "version": "0.1.12",
+  "version": "0.1.0",
   "description": "",
   "main": "./lib/masterPro/index.js",
   "files": [
